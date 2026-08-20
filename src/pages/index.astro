@@ -1,0 +1,375 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = '20 de agosto de 2026';
+---
+
+<BaseLayout
+	title="Política de privacidad"
+	description="Información sobre el tratamiento de datos en la aplicación y el servicio Evangelio del día."
+>
+	<main>
+		<article>
+			<h1>Política de privacidad</h1>
+
+			<div class="meta">
+				<span>Versión 1.0</span>
+				<span>Última actualización: {lastUpdated}</span>
+			</div>
+
+			<div class="highlight-box">
+				<p>
+					<strong>Resumen:</strong> Evangelio del día es una aplicación de consulta
+					de lecturas y comentarios litúrgicos. No requiere registro, no recopila
+					datos personales identificativos (como nombre o correo electrónico) y no
+					utiliza herramientas de analítica ni publicidad.
+				</p>
+			</div>
+
+			<nav class="toc" aria-label="Índice">
+				<h2>Índice</h2>
+				<ol>
+					<li><a href="#responsable">Responsable del tratamiento</a></li>
+					<li><a href="#alcance">Ámbito de aplicación</a></li>
+					<li><a href="#datos-recopilados">Datos que tratamos</a></li>
+					<li><a href="#finalidad">Finalidad y base legal</a></li>
+					<li><a href="#almacenamiento-local">Almacenamiento en tu dispositivo</a></li>
+					<li><a href="#comunicaciones">Comunicaciones con nuestros servidores</a></li>
+					<li><a href="#terceros">Servicios de terceros</a></li>
+					<li><a href="#conservacion">Plazo de conservación</a></li>
+					<li><a href="#derechos">Tus derechos</a></li>
+					<li><a href="#menores">Menores de edad</a></li>
+					<li><a href="#cambios">Cambios en esta política</a></li>
+					<li><a href="#contacto">Contacto</a></li>
+				</ol>
+			</nav>
+
+			<section id="responsable">
+				<h2>1. Responsable del tratamiento</h2>
+				<p>
+					El responsable del tratamiento de los datos asociados al servicio
+					<strong>Evangelio del día</strong> (aplicación móvil, aplicación web y API
+					de contenido litúrgico) es el titular del proyecto, accesible a través del
+					dominio <a href="https://evangeliodeldia.dpdns.org">evangeliodeldia.dpdns.org</a>.
+				</p>
+				<p>
+					Para cualquier consulta relacionada con la privacidad, puedes escribirnos
+					utilizando los canales de contacto indicados al final de este documento.
+				</p>
+			</section>
+
+			<section id="alcance">
+				<h2>2. Ámbito de aplicación</h2>
+				<p>Esta política se aplica a:</p>
+				<ul>
+					<li>
+						La <strong>aplicación móvil</strong> Evangelio del día (Android e iOS),
+						desarrollada con Flutter.
+					</li>
+					<li>
+						La <strong>versión web</strong> de la aplicación, cuando se accede desde
+						un navegador.
+					</li>
+					<li>
+						La <strong>API de backend</strong> que proporciona las lecturas del día,
+						comentarios litúrgicos y audiencias generales del Papa.
+					</li>
+					<li>
+						Este <strong>sitio web</strong>, donde se publica la presente política de
+						privacidad.
+					</li>
+				</ul>
+			</section>
+
+			<section id="datos-recopilados">
+				<h2>3. Datos que tratamos</h2>
+
+				<h3>3.1. Datos que no recopilamos</h3>
+				<p>Evangelio del día <strong>no recopila</strong> datos personales como:</p>
+				<ul>
+					<li>Nombre, apellidos o alias</li>
+					<li>Dirección de correo electrónico</li>
+					<li>Número de teléfono</li>
+					<li>Ubicación geográfica</li>
+					<li>Identificadores publicitarios</li>
+					<li>Datos de pago</li>
+				</ul>
+				<p>
+					No existe sistema de registro, inicio de sesión ni cuentas de usuario. La
+					aplicación es de <strong>solo lectura</strong>: muestra contenido litúrgico
+					sin solicitar datos identificativos.
+				</p>
+
+				<h3>3.2. Datos técnicos y de uso</h3>
+				<p>
+					Al utilizar la aplicación o la API, se pueden generar automáticamente los
+					siguientes datos técnicos, habituales en cualquier comunicación por Internet:
+				</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Dato</th>
+							<th>Origen</th>
+							<th>Finalidad</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Fecha solicitada</td>
+							<td>Enviada por la app al consultar lecturas o comentarios</td>
+							<td>Mostrar el contenido litúrgico del día seleccionado</td>
+						</tr>
+						<tr>
+							<td>Idioma (<code>es</code> o <code>ca</code>)</td>
+							<td>Enviada por la app al consultar la API</td>
+							<td>Devolver el contenido en el idioma elegido</td>
+						</tr>
+						<tr>
+							<td>Dirección IP</td>
+							<td>Generada automáticamente en la conexión HTTP</td>
+							<td>Operación del servidor; puede registrarse temporalmente en logs</td>
+						</tr>
+						<tr>
+							<td>User-Agent del navegador o dispositivo</td>
+							<td>Enviado automáticamente en peticiones HTTP</td>
+							<td>Diagnóstico técnico y compatibilidad</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					Estos datos <strong>no se utilizan</strong> para crear perfiles de usuario,
+					segmentación publicitaria ni seguimiento entre sesiones.
+				</p>
+			</section>
+
+			<section id="finalidad">
+				<h2>4. Finalidad y base legal</h2>
+				<p>Tratamos los datos descritos exclusivamente para:</p>
+				<ul>
+					<li>
+						<strong>Prestar el servicio</strong> de consulta de lecturas, salmos,
+						evangelio y comentarios litúrgicos del día.
+					</li>
+					<li>
+						<strong>Mantener y mejorar</strong> el funcionamiento técnico de la API y
+						la aplicación (caché de contenido, resolución de incidencias).
+					</li>
+					<li>
+						<strong>Traducir contenido</strong> al catalán mediante servicios de
+						traducción automática, cuando el idioma seleccionado lo requiera.
+					</li>
+				</ul>
+				<p>
+					La base legal del tratamiento, conforme al Reglamento General de Protección
+					de Datos (RGPD), es el <strong>interés legítimo</strong> del responsable en
+					ofrecer un servicio de contenido religioso de acceso libre, así como la
+					<strong>ejecución del servicio</strong> solicitado por el usuario al abrir la
+					aplicación.
+				</p>
+			</section>
+
+			<section id="almacenamiento-local">
+				<h2>5. Almacenamiento en tu dispositivo</h2>
+				<p>
+					La aplicación guarda en tu dispositivo únicamente <strong>preferencias de
+					uso</strong>, no datos personales:
+				</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Preferencia</th>
+							<th>Descripción</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Idioma de la interfaz</td>
+							<td>Español o catalán</td>
+						</tr>
+						<tr>
+							<td>Tamaño del texto</td>
+							<td>Nivel de ampliación de la fuente de lectura</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					En dispositivos móviles se almacenan mediante el mecanismo nativo de
+					preferencias del sistema (<code>SharedPreferences</code>). En la versión
+					web del navegador, se utilizan tecnologías equivalentes de almacenamiento
+					local del navegador.
+				</p>
+				<p>
+					Puedes eliminar estas preferencias desinstalando la aplicación o borrando los
+					datos del sitio en la configuración de tu navegador.
+				</p>
+				<p>
+					<strong>Cookies:</strong> la aplicación no establece cookies de seguimiento ni
+					publicitarias. Este sitio web de políticas tampoco utiliza cookies.
+				</p>
+			</section>
+
+			<section id="comunicaciones">
+				<h2>6. Comunicaciones con nuestros servidores</h2>
+				<p>
+					La aplicación se comunica con nuestra API mediante peticiones
+					<strong>GET anónimas</strong> (sin cabeceras de autenticación ni
+					identificadores de usuario). Los endpoints consultados son:
+				</p>
+				<ul>
+					<li><code>/api/v1/lecturas-del-dia</code> — lecturas litúrgicas</li>
+					<li><code>/api/v1/comentarios-del-dia</code> — comentarios de distintas fuentes</li>
+					<li><code>/api/v1/audiencia-general</code> — última audiencia del Papa</li>
+				</ul>
+				<p>
+					El contenido mostrado se obtiene de fuentes eclesiásticas públicas (Conferencia
+					Episcopal, Vatican News, Dominicos.org, Evangeli.net, Vatican.va, entre otras)
+					y se almacena en caché en nuestros servidores para mejorar el rendimiento. La
+					caché de contenido litúrgico se elimina automáticamente al cabo de un día.
+				</p>
+				<p>
+					Los registros del servidor (logs HTTP) pueden conservar temporalmente datos
+					técnicos de acceso, como la dirección IP, con fines de mantenimiento y
+					seguridad.
+				</p>
+			</section>
+
+			<section id="terceros">
+				<h2>7. Servicios de terceros</h2>
+				<p>
+					Algunas funcionalidades implican el uso de servicios externos. A
+					continuación se detallan:
+				</p>
+
+				<h3>7.1. Microsoft Azure Translator</h3>
+				<p>
+					Nuestro backend utiliza <strong>Azure Translator</strong> (Microsoft) para
+					traducir automáticamente comentarios litúrgicos y audiencias generales al
+					catalán. Se envía únicamente el <strong>texto litúrgico</strong> a traducir
+					(títulos, contenido, lugares), nunca datos personales de usuarios.
+				</p>
+				<p>
+					Más información:
+					<a href="https://privacy.microsoft.com" rel="noopener noreferrer" target="_blank">
+						Política de privacidad de Microsoft
+					</a>.
+				</p>
+
+				<h3>7.2. Google Fonts</h3>
+				<p>
+					La aplicación utiliza la biblioteca <strong>Google Fonts</strong> para cargar
+					las tipografías de la interfaz (Source Sans 3 y Cormorant Garamond). Al
+					utilizar la app, tu dispositivo puede conectarse a los servidores de Google
+					(<code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code>), lo que
+					puede implicar el envío de tu dirección IP y User-Agent.
+				</p>
+				<p>
+					Más información:
+					<a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">
+						Política de privacidad de Google
+					</a>.
+				</p>
+
+				<h3>7.3. Enlaces externos</h3>
+				<p>
+					Los comentarios litúrgicos incluyen enlaces a las fuentes originales (sitios
+					web de órdenes religiosas, Vatican News, etc.). Si pulsas en uno de estos
+					enlaces, abandonarás la aplicación y quedarás sujeto a la política de
+					privacidad del sitio de destino.
+				</p>
+
+				<h3>7.4. Función de compartir</h3>
+				<p>
+					La aplicación permite compartir el texto de las lecturas mediante la hoja de
+					compartir del sistema operativo (<code>share_plus</code>). Esta acción la
+					inicias tú voluntariamente; el destino (mensajería, correo, redes sociales)
+					depende de la aplicación que elijas y de su propia política de privacidad.
+				</p>
+
+				<h3>7.5. Lo que no utilizamos</h3>
+				<p>Evangelio del día <strong>no integra</strong>:</p>
+				<ul>
+					<li>Herramientas de analítica (Google Analytics, Firebase Analytics, etc.)</li>
+					<li>Redes publicitarias o seguimiento entre aplicaciones</li>
+					<li>Servicios de pago</li>
+					<li>Plataformas de autenticación de terceros</li>
+					<li>SDKs de monitorización de errores con identificación de usuario</li>
+				</ul>
+			</section>
+
+			<section id="conservacion">
+				<h2>8. Plazo de conservación</h2>
+				<ul>
+					<li>
+						<strong>Preferencias locales</strong> (idioma, tamaño de texto): se
+						conservan en tu dispositivo hasta que las elimines o desinstales la
+						aplicación.
+					</li>
+					<li>
+						<strong>Caché de contenido litúrgico</strong> en servidor: se elimina
+						automáticamente al día siguiente de su generación.
+					</li>
+					<li>
+						<strong>Logs del servidor</strong>: se conservan el tiempo estrictamente
+						necesario para el mantenimiento y la seguridad del servicio.
+					</li>
+				</ul>
+			</section>
+
+			<section id="derechos">
+				<h2>9. Tus derechos</h2>
+				<p>
+					Si resides en el Espacio Económico Europeo o en un territorio con normativa
+					equivalente de protección de datos, puedes ejercer los siguientes derechos:
+				</p>
+				<ul>
+					<li><strong>Acceso</strong> — conocer qué datos tratamos sobre ti.</li>
+					<li><strong>Rectificación</strong> — corregir datos inexactos.</li>
+					<li><strong>Supresión</strong> — solicitar la eliminación de tus datos.</li>
+					<li><strong>Limitación del tratamiento</strong>.</li>
+					<li><strong>Oposición</strong> al tratamiento basado en interés legítimo.</li>
+					<li><strong>Portabilidad</strong> de los datos que nos hayas facilitado.</li>
+				</ul>
+				<p>
+					Dado que la aplicación no recopila datos personales identificativos, en la
+					práctica el ejercicio de estos derechos se limita a los datos técnicos que
+					pudieran existir en logs del servidor. Para ejercerlos, contacta con nosotros
+					indicando el derecho que deseas ejercer.
+				</p>
+				<p>
+					También tienes derecho a presentar una reclamación ante la autoridad de
+					control de protección de datos de tu país (en España, la
+					<a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">AEPD</a>).
+				</p>
+			</section>
+
+			<section id="menores">
+				<h2>10. Menores de edad</h2>
+				<p>
+					Evangelio del día es una aplicación de contenido religioso apta para todo
+					público. No recopilamos datos personales de menores ni de ningún usuario. No
+					se requiere verificación de edad para utilizar el servicio.
+				</p>
+			</section>
+
+			<section id="cambios">
+				<h2>11. Cambios en esta política</h2>
+				<p>
+					Podemos actualizar esta política de privacidad cuando incorporemos nuevas
+					funcionalidades o cambien las prácticas de tratamiento de datos. Publicaremos
+					la versión actualizada en esta página, indicando la fecha de la última
+					revisión. Te recomendamos consultarla periódicamente.
+				</p>
+			</section>
+
+			<section id="contacto">
+				<h2>12. Contacto</h2>
+				<p>
+					Si tienes preguntas sobre esta política de privacidad o sobre el tratamiento
+					de tus datos, puedes contactar con el responsable del proyecto a través de
+					los canales oficiales asociados al servicio en
+					<a href="https://evangeliodeldia.dpdns.org">evangeliodeldia.dpdns.org</a>.
+				</p>
+			</section>
+		</article>
+	</main>
+</BaseLayout>
