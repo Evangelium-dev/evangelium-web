@@ -2,6 +2,10 @@
 
 Sitio web con [Astro](https://astro.build) para publicar la política de privacidad de **Evangelio del día**.
 
+## Despliegue
+
+Publicado en Netlify: [https://evangelium-web.netlify.app/](https://evangelium-web.netlify.app/)
+
 ## Desarrollo
 
 ```bash
@@ -10,6 +14,8 @@ npm run dev
 ```
 
 Abre [http://localhost:4321](http://localhost:4321).
+
+Requiere **Node.js >= 22.12.0** (Astro 7). Si usas [fnm](https://github.com/Schniz/fnm), `fnm use` leerá la versión de `.nvmrc`.
 
 ## Producción
 

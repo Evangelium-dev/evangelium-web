@@ -2,5 +2,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-	site: 'https://evangeliodeldia.dpdns.org',
+	site: 'https://evangelium-web.netlify.app',
 });
