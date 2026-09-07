@@ -37,12 +37,20 @@ const fullTitle = title === 'Evangelio del día'
 		<header class="site-header">
 			<a class="site-header__brand" href="/">Evangelio del día</a>
 			<p class="site-header__subtitle">Lecturas y comentarios litúrgicos</p>
+			<nav class="site-nav" aria-label="Principal">
+				<a href="/">Privacidad</a>
+				<a href="/sobre-mi">Sobre mí</a>
+				<a href="/donaciones">Donaciones</a>
+			</nav>
 		</header>
 		<slot />
 		<footer class="site-footer">
 			<p>
 				<a href="/">Política de privacidad</a>
-				· Última actualización: agosto de 2026
+				·
+				<a href="/sobre-mi">Sobre mí</a>
+				·
+				<a href="/donaciones">Donaciones</a>
 			</p>
 		</footer>
 	</body>

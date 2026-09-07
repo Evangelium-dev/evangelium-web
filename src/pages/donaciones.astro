@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Donaciones"
+	description="Colabora con Evangelium para mantener y mejorar la aplicación Evangelio del día."
+>
+	<main>
+		<article class="donate">
+			<h1>Donaciones</h1>
+
+			<p class="donate__lead">
+				Un espacio para quienes quieran apoyar el mantenimiento y la mejora del proyecto.
+			</p>
+
+			<p>
+				Evangelium no pretende generar beneficios económicos ni convertirse en un
+				proyecto rentable. Es una iniciativa personal que he querido compartir para
+				aportar mi pequeño grano de arena.
+			</p>
+
+			<p>
+				Aun así, me gustaría ofrecer un espacio para que quienes quieran y puedan
+				colaborar ayuden a mantener y mejorar el proyecto, así como a alcanzar
+				objetivos que, sin apoyo económico, serían difíciles o imposibles de
+				conseguir. Uno de ellos es publicar la aplicación en iOS, lo que supone un
+				coste de aproximadamente 100&nbsp;€ al año.
+			</p>
+
+			<p>
+				Toda ayuda será bienvenida y se destinará única y exclusivamente al
+				desarrollo, mantenimiento y mejora de Evangelium.
+			</p>
+
+			<form id="donate-form" class="donate-form" novalidate>
+				<label class="donate-form__label" for="amount">
+					Importe de la donación
+				</label>
+				<div class="donate-form__amount">
+					<span class="donate-form__currency" aria-hidden="true">€</span>
+					<input
+						id="amount"
+						name="amount"
+						type="number"
+						inputmode="decimal"
+						min="0.50"
+						max="10000"
+						step="0.01"
+						placeholder="0,00"
+						required
+						autocomplete="off"
+					/>
+				</div>
+				<p id="donate-error" class="donate-form__error" role="alert" hidden></p>
+				<button type="submit" class="donate-form__submit" id="donate-submit">
+					Donar con Stripe
+				</button>
+				<p class="donate-form__hint">
+					Pago único seguro procesado por Stripe. Mínimo 0,50&nbsp;€.
+				</p>
+			</form>
+		</article>
+	</main>
+</BaseLayout>
+
+<script>
+	const form = document.getElementById('donate-form') as HTMLFormElement | null;
+	const amountInput = document.getElementById('amount') as HTMLInputElement | null;
+	const errorEl = document.getElementById('donate-error') as HTMLParagraphElement | null;
+	const submitBtn = document.getElementById('donate-submit') as HTMLButtonElement | null;
+
+	if (form && amountInput && errorEl && submitBtn) {
+		form.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			errorEl.hidden = true;
+			errorEl.textContent = '';
+
+			const amount = Number(amountInput.value.replace(',', '.'));
+			if (!Number.isFinite(amount) || amount < 0.5) {
+				errorEl.textContent = 'Introduce un importe de al menos 0,50 €.';
+				errorEl.hidden = false;
+				amountInput.focus();
+				return;
+			}
+			if (amount > 10000) {
+				errorEl.textContent = 'El importe máximo es 10.000 €.';
+				errorEl.hidden = false;
+				amountInput.focus();
+				return;
+			}
+
+			const originalLabel = submitBtn.textContent;
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Redirigiendo…';
+
+			try {
+				const response = await fetch('/.netlify/functions/create-checkout', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ amount }),
+				});
+
+				const data = (await response.json()) as { url?: string; error?: string };
+				if (!response.ok || !data.url) {
+					throw new Error(data.error || 'No se pudo iniciar el pago.');
+				}
+
+				window.location.href = data.url;
+			} catch (error) {
+				errorEl.textContent =
+					error instanceof Error
+						? error.message
+						: 'No se pudo iniciar el pago. Inténtalo de nuevo.';
+				errorEl.hidden = false;
+				submitBtn.disabled = false;
+				submitBtn.textContent = originalLabel || 'Donar con Stripe';
+			}
+		});
+	}
+</script>
