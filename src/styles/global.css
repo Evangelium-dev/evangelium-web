@@ -138,6 +138,37 @@ strong {
 	text-underline-offset: 3px;
 }
 
+.lang-switch {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+	font-size: 0.85rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
+
+.lang-switch a {
+	color: var(--color-text-muted);
+	text-decoration: none;
+	padding: 0.15rem 0.25rem;
+}
+
+.lang-switch a:hover {
+	color: var(--color-accent);
+}
+
+.lang-switch a[aria-current='page'] {
+	color: var(--color-accent);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.site-footer__lang {
+	margin-top: 0.75rem;
+}
+
 .about__lead {
 	margin: 0 0 1.75rem;
 	padding-bottom: 1.5rem;

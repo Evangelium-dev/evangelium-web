@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getDonate } from '../i18n/donate';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getDonate } from '../../i18n/donate';
 
-const t = getDonate('es');
-const locale = 'es' as const;
+const t = getDonate('ca');
+const locale = 'ca' as const;
 const messages = {
 	errorMin: t.errorMin,
 	errorMax: t.errorMax,
@@ -63,7 +63,7 @@ const messages = {
 	const submitBtn = document.getElementById('donate-submit') as HTMLButtonElement | null;
 
 	if (form && amountInput && errorEl && submitBtn) {
-		const locale = form.dataset.locale || 'es';
+		const locale = form.dataset.locale || 'ca';
 		const messages = JSON.parse(form.dataset.messages || '{}') as {
 			errorMin: string;
 			errorMax: string;

@@ -1,30 +1,53 @@
 ---
 import '../styles/global.css';
+import {
+	alternateLocale,
+	getUi,
+	localePath,
+} from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+import type { RouteKey } from '../i18n/config';
 
 interface Props {
 	title: string;
 	description?: string;
+	locale: Locale;
+	route: RouteKey;
 }
 
 const {
 	title,
-	description = 'Política de privacidad de Evangelio del día.',
+	description = '',
+	locale,
+	route,
 } = Astro.props;
 
-const fullTitle = title === 'Evangelio del día'
-	? title
-	: `${title} · Evangelio del día`;
+const t = getUi(locale);
+const other = alternateLocale(locale);
+const homeHref = localePath(locale, 'home');
+const aboutHref = localePath(locale, 'about');
+const donateHref = localePath(locale, 'donate');
+const alternateHref = localePath(other, route);
+
+const fullTitle = title === t.brand ? title : `${title} · ${t.brand}`;
+const defaultDescription =
+	locale === 'ca'
+		? 'Política de privacitat d’Evangeli del dia.'
+		: 'Política de privacidad de Evangelio del día.';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={locale}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
+		<meta name="description" content={description || defaultDescription} />
+		<link rel="alternate" hreflang="es" href={new URL(localePath('es', route), Astro.site)} />
+		<link rel="alternate" hreflang="ca" href={new URL(localePath('ca', route), Astro.site)} />
+		<link rel="alternate" hreflang="x-default" href={new URL(localePath('es', route), Astro.site)} />
 		<title>{fullTitle}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,22 +58,40 @@ const fullTitle = title === 'Evangelio del día'
 	</head>
 	<body>
 		<header class="site-header">
-			<a class="site-header__brand" href="/">Evangelio del día</a>
-			<p class="site-header__subtitle">Lecturas y comentarios litúrgicos</p>
-			<nav class="site-nav" aria-label="Principal">
-				<a href="/">Privacidad</a>
-				<a href="/sobre-mi">Sobre mí</a>
-				<a href="/donaciones">Donaciones</a>
+			<a class="site-header__brand" href={homeHref}>{t.brand}</a>
+			<p class="site-header__subtitle">{t.subtitle}</p>
+			<nav class="site-nav" aria-label={t.navAria}>
+				<a href={homeHref}>{t.navPrivacy}</a>
+				<a href={aboutHref}>{t.navAbout}</a>
+				<a href={donateHref}>{t.navDonate}</a>
+			</nav>
+			<nav class="lang-switch" aria-label={t.langAria}>
+				<a
+					href={localePath('es', route)}
+					aria-current={locale === 'es' ? 'page' : undefined}
+				>
+					{t.langEs}
+				</a>
+				<span aria-hidden="true">·</span>
+				<a
+					href={localePath('ca', route)}
+					aria-current={locale === 'ca' ? 'page' : undefined}
+				>
+					{t.langCa}
+				</a>
 			</nav>
 		</header>
 		<slot />
 		<footer class="site-footer">
 			<p>
-				<a href="/">Política de privacidad</a>
+				<a href={homeHref}>{t.footerPrivacy}</a>
 				·
-				<a href="/sobre-mi">Sobre mí</a>
+				<a href={aboutHref}>{t.footerAbout}</a>
 				·
-				<a href="/donaciones">Donaciones</a>
+				<a href={donateHref}>{t.footerDonate}</a>
+			</p>
+			<p class="site-footer__lang">
+				<a href={alternateHref}>{other === 'ca' ? 'Versió en català' : 'Versión en español'}</a>
 			</p>
 		</footer>
 	</body>

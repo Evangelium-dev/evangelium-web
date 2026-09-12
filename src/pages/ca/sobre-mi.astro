@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAbout } from '../../i18n/about';
+
+const t = getAbout('ca');
+---
+
+<BaseLayout locale="ca" route="about" title={t.title} description={t.description}>
+	<main>
+		<article class="about">
+			<h1>{t.heading}</h1>
+			<p class="about__lead">{t.lead}</p>
+			<p>{t.p1}</p>
+			<p>{t.p2}</p>
+		</article>
+	</main>
+</BaseLayout>

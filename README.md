@@ -1,6 +1,11 @@
 # evangelium-web
 
-Sitio web con [Astro](https://astro.build) para la política de privacidad, la historia del proyecto y las donaciones de **Evangelio del día**.
+Sitio web con [Astro](https://astro.build) para la política de privacidad, la historia del proyecto y las donaciones de **Evangelio del día** / **Evangeli del dia**.
+
+## Idiomas
+
+- Español (por defecto): `/`, `/sobre-mi`, `/donaciones`
+- Catalán: `/ca/`, `/ca/sobre-mi`, `/ca/donaciones`
 
 ## Despliegue
 
