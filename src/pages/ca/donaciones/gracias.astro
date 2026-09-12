@@ -1,14 +1,14 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getDonate } from '../../i18n/donate';
-import { localePath } from '../../i18n/ui';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getDonate } from '../../../i18n/donate';
+import { localePath } from '../../../i18n/ui';
 
-const t = getDonate('es');
-const backHref = localePath('es', 'donate');
+const t = getDonate('ca');
+const backHref = localePath('ca', 'donate');
 ---
 
 <BaseLayout
-	locale="es"
+	locale="ca"
 	route="donateThanks"
 	title={t.thanksTitle}
 	description={t.thanksDescription}

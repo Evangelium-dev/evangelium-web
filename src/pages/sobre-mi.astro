@@ -1,34 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAbout } from '../i18n/about';
+
+const t = getAbout('es');
 ---
 
-<BaseLayout
-	title="Sobre mí"
-	description="Cómo nació Evangelio del día: una aplicación para facilitar la lectura diaria del Evangelio y sus comentarios."
->
+<BaseLayout locale="es" route="about" title={t.title} description={t.description}>
 	<main>
 		<article class="about">
-			<h1>Sobre mí</h1>
-
-			<p class="about__lead">
-				El origen de Evangelio del día y por qué existe esta aplicación.
-			</p>
-
-			<p>
-				La lectura diaria del Evangelio es una práctica que me ha ayudado a
-				mantener presente al Señor en mi día a día y a profundizar en mi fe. Sin
-				embargo, no siempre me ha resultado fácil ser constante. Por eso empecé
-				a recurrir a comentarios sobre las lecturas publicados por distintas
-				organizaciones.
-			</p>
-
-			<p>
-				De ahí nació la idea de crear una aplicación que facilitara el acceso a
-				las lecturas diarias junto con sus respectivos comentarios. A partir de
-				ese momento fueron surgiendo nuevas ideas y recomendaciones de personas
-				de mi entorno, que han contribuido a que la aplicación llegue hasta
-				donde está hoy.
-			</p>
+			<h1>{t.heading}</h1>
+			<p class="about__lead">{t.lead}</p>
+			<p>{t.p1}</p>
+			<p>{t.p2}</p>
 		</article>
 	</main>
 </BaseLayout>
