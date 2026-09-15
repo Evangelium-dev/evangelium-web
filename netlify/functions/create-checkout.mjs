@@ -104,6 +104,8 @@ export async function handler(event) {
 	try {
 		const session = await stripe.checkout.sessions.create({
 			mode: 'payment',
+			submit_type: 'donate',
+			managed_payments: { enabled: false },
 			integration_identifier: 'evangelium_donate_xkqmrtvw',
 			line_items: [
 				{
